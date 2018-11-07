@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Produtos Disponveis para Compra</title>
@@ -26,17 +26,19 @@
 									</tr>
 								</thead>
 								<tr th:each="produto : ${produtosDisponiveis}" varStatus="produtos">
-									<td><span th:text="${produto.codigo}"></span></td>
-									<td><span th:text="${produto.descricao}"></span></td>
-									<td>
-										<label for="qtde">Qtde.</label>
-										<input type="qtde" name="qtde_" size="5" value="0">									
-									</td>
-									<td>
-										<button type="button" class="btn btn-primary btn-sm" aria-label="Left Align" onClick=";">
-											<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>&nbsp;Comprar
-										</button>
-									</td>	            
+									<form>
+										<td><span><label class="codigo" id="codigo" th:text="${produto.codigo}"></label></span></td>
+										<td><span th:text="${produto.descricao}"></span></td>
+										<td>
+											<label for="qtde">Qtde.</label>
+											<input type="qtde" name="qtde_" size="5" value="0">									
+										</td>
+										<td>
+											<button type="button" class="btn btn-primary btn-sm" aria-label="Left Align" onClick="addProduto(this.form);">
+												<span class="glyphicon glyphicon-plus" aria-hidden="false"></span>&nbsp;Comprar
+											</button>
+										</td>
+									</form>		            
 									
 								</tr>
 				
@@ -92,6 +94,10 @@
 		$.get( "carrinho", function( data ) {
 		  console.log(data);
 		});
+	}
+	
+	function addProduto(form) {
+		console.log(form);
 	}
 	
 	
