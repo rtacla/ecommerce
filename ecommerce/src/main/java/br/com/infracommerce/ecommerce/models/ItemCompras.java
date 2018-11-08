@@ -1,13 +1,19 @@
 package br.com.infracommerce.ecommerce.models;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class ItemCompras {
+public class ItemCompras implements Serializable {
 	
 	
 	private Produto produto;
 	private int quantidade;
 	private BigDecimal valorUnitario;
+	
+	public ItemCompras(Object item) {
+		System.out.println(item.toString());
+		
+	}
 	
 	public ItemCompras(Produto produto, BigDecimal valorUnitario, int quantidade) {
 		this.produto = produto;
@@ -40,6 +46,10 @@ public class ItemCompras {
 
 	public BigDecimal getValorTotal() {
 		return valorUnitario.multiply(BigDecimal.valueOf(quantidade));
+	}
+	
+	public ItemCompras() {
+		
 	}
 	
 	

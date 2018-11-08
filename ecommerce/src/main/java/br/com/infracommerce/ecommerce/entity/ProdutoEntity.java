@@ -1,10 +1,16 @@
-package br.com.infracommerce.ecommerce.models;
+package br.com.infracommerce.ecommerce.entity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Produto implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name="produtos")
+public class ProdutoEntity {
 	
+	@Id
+	@GeneratedValue
 	private Long codigo;
 	private String descricao;
 	private BigDecimal valor;
@@ -21,28 +27,12 @@ public class Produto implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
 	public BigDecimal getValor() {
 		return valor;
 	}
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	public Produto(Long codigo, String descricao) {
-		this.codigo = codigo;
-		this.descricao = descricao;
-	}
-	
-	public Produto(String codigo, String descricao, BigDecimal valor) {
-		this.codigo = Long.valueOf(codigo);
-		this.descricao = descricao;
-		this.valor = valor;
-	}
-	
-	public Produto() {
-	}
-	
-	
 	
 	
 

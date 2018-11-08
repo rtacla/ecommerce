@@ -47,6 +47,14 @@ public class CarrinhoCompras {
 	 public BigDecimal getValorTotal() {
 		 return BigDecimal.valueOf(itens.stream().mapToDouble(item -> item.getValorTotal().doubleValue()).sum());
 	 }
+	 
+	 public ArrayList getTotais() {
+		 ArrayList list = new ArrayList();
+		 list.add(BigDecimal.valueOf(itens.stream().mapToDouble(item -> item.getValorTotal().doubleValue()).sum()));
+		 list.add(itens.size());
+		 return list;
+		 
+	 }
 
 	public Collection<ItemCompras> getItens() {
 		return itens;
