@@ -57,7 +57,7 @@ public class CarrinhoController {
 	@PutMapping
 	@ResponseBody
 	public String atualizarItemCarrinho(Model model, HttpSession session, @RequestBody ItemCompras item) {
-		carrinho.addItem(item.getProduto(), item.getValorUnitario(), item.getQuantidade());
+		carrinho.updItem(item.getProduto(), item.getQuantidade());
 		return carrinho.getValorTotal().toString();
 	}
 	

@@ -35,6 +35,19 @@ public class CarrinhoCompras {
 			itens.add(new ItemCompras(produto, valorUnitario, quantidade));
 		}
 	}
+	public void updItem(Produto produto, int quantidade) {
+		if(itens.size()>0) {
+			ItemCompras itemSelecao = itens.stream()
+    				.filter(itemSel -> itemSel.getProduto().getCodigo().longValue()==produto.getCodigo().longValue())
+    				.findAny()
+    				.orElse(null);
+			
+			
+			if(itemSelecao!=null) {
+				itemSelecao.setQuantidade(itemSelecao.getQuantidade() + quantidade);
+			}
+		}
+	}
 	
 	public boolean removerItem(Produto produto) {
 		return itens.removeIf(item -> produto.getCodigo().longValue()==item.getProduto().getCodigo().longValue());
