@@ -1,4 +1,4 @@
-package br.com.infracommerce.ecommerce;
+package br.com.infracommerce.ecommerce.controller;
 
 import java.util.Collection;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
-import br.com.infracommerce.ecommerce.models.CarrinhoCompras;
 import br.com.infracommerce.ecommerce.models.ItemCompras;
 import br.com.infracommerce.ecommerce.models.Produto;
 import br.com.infracommerce.ecommerce.service.ProdutosService;
+import br.com.infracommerce.ecommerce.service.impl.CarrinhoComprasServiceImpl;
 
 @Controller
 public class ECommerceController {

@@ -1,4 +1,4 @@
-package br.com.infracommerce.ecommerce;
+package br.com.infracommerce.ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
